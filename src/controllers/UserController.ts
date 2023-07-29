@@ -3,7 +3,6 @@ import BaseController from "./BaseController";
 
 class UserController extends BaseController {
     public path: string;
-    
     constructor() {
         super();
         this.path = '/user';
@@ -22,7 +21,6 @@ class UserController extends BaseController {
     getUser(request: Request, response: Response) : void {
         response.send("some user");
     }
-
 }
 
 export default UserController;
