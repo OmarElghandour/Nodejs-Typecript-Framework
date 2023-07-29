@@ -1,0 +1,40 @@
+// plop-templates/controller.ts.hbs
+import { Request, Response } from 'express';
+import BaseController from "./BaseController";
+
+export class {{pascalCase controllerName}}Controller extends BaseController {
+    public path: string;
+    constructor() {
+        super();
+        this.path = '/{{controllerName}}';
+        this.initRoutes();
+        console.log('ccccccccccccc');
+    }
+
+
+    public initRoutes() {
+        this.router.get('/', this.index);
+        this.router.post('/create', this.create);
+        this.router.patch('/update', this.update);
+        this.router.post('/delete', this.delete);
+    }
+
+  async index(req: Request, res: Response) {
+    // Add your controller logic here
+    // Example:
+    // const items = await ItemModel.find();
+    // res.json(items);
+  }
+
+  async create(req: Request, res: Response) {
+    // Add your controller logic here
+  }
+
+  async update(req: Request, res: Response) {
+    // Add your controller logic here
+  }
+
+  async delete(req: Request, res: Response) {
+    // Add your controller logic here
+  }
+}
