@@ -1,9 +1,8 @@
 import express, {Application} from 'express';
 import contollers from './web';
-import IController from '../src/interfaces/IController';
-import path from 'path';
-import fs from 'fs';
-
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import { connect } from 'mongoose';
 
 class App {
     private port;
@@ -11,8 +10,10 @@ class App {
     constructor(port: number) {
         this.port = port;
         this.app = express();
+        this.initMiddlewares();
         this.initWebServer();
         this.initControllers();
+        this.initMongoConnection();
     }
 
 
@@ -29,6 +30,14 @@ class App {
         });
     }
 
+    initMiddlewares() {
+        this.app.use(cors());
+        this.app.use(bodyParser.json());
+    }
+
+    async initMongoConnection() {
+        await connect('mongodb://127.0.0.1:27017/test');
+    }
 }
 
 export default App;

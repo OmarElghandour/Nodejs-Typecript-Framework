@@ -1,5 +1,3 @@
-// src/index.ts
-import express, {Application} from 'express';
 import App from './App';
 
 // import morgan

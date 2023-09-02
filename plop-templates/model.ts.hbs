@@ -1,0 +1,6 @@
+// models/{{modelName}}.ts
+export interface {{modelName}} {
+  {{#each modelProperties}}
+  {{this}}: {{lookup ../propertyTypes @index}},
+  {{/each}}
+}
